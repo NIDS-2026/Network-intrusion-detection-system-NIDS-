@@ -1,0 +1,24 @@
+services:
+  nids-api:
+    build: .
+    image: nids-api:latest
+    container_name: nids-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      NIDS_API_KEY: ${NIDS_API_KEY:-nids-dev-key-2025}
+    volumes:
+      # Mount the SQLite DB so prediction stats survive container restarts
+      - ./nids.db:/app/nids.db
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python", "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
+        ]
+      interval: 30s
+      timeout:  10s
+      retries:  3
+      start_period: 15s
