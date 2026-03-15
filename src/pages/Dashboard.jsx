@@ -420,7 +420,7 @@ export default function Dashboard() {
                       ]}
                       contentStyle={{
                         backgroundColor: "#020617",
-                        border: "1px solid "#1f2937",
+                        border: "1px solid #1f2937",
                         borderRadius: "0.75rem",
                         fontSize: "0.75rem",
                       }}
