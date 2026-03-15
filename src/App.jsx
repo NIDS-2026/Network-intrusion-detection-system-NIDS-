@@ -31,7 +31,7 @@ function DashboardLayout({ children }) {
           opacity: 0.15,
         }}
         dangerouslySetInnerHTML={{
-          __html: `<spline-viewer url="https://prod.spline.design/E7a-To0xYvUf8IP9/scene.splinecode" style="width:100%;height:100%;display:block;"></spline-viewer>`,
+          __html: `<spline-viewer url="https://prod.spline.design/VhnHXFq-meRNW9Cw/scene.splinecode" style="width:100%;height:100%;display:block;"></spline-viewer>`,
         }}
       />
       <div style={{
