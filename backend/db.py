@@ -11,10 +11,13 @@ SQLite persistence layer for NIDS prediction statistics.
 from __future__ import annotations
 
 import sqlite3
+import os
 from pathlib import Path
 
 # Database lives next to the project root so it persists across restarts.
-DB_PATH = str(Path(__file__).parent.parent / "nids.db")
+_DEFAULT_DB_PATH = str(Path(__file__).parent.parent / "nids.db")
+# Render-specific: allow a persistent disk mount to be used for sqlite storage.
+DB_PATH = os.getenv("NIDS_DB_PATH", _DEFAULT_DB_PATH)
 
 # ── DDL ────────────────────────────────────────────────────────────────
 _CREATE_TABLE = """
